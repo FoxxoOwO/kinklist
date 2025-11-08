@@ -87,3 +87,429 @@ body {
   background-color: #f8f9fa;
   color: #212529;
 }
+
+
+/* Kontejner pro tečky (mezera z vašeho .legend-item) */
+        .dots-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 6px; /* Z vašeho .legend-item */
+        }
+
+
+
+/* --- Styly pro tabulku (inspirované obrázkem) --- */
+        
+        .preference-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .preference-table th,
+        .preference-table td {
+            border: 1px solid #ddd; /* Barva okraje z .legend-container */
+            padding: 12px 15px;
+            vertical-align: middle;
+            text-align: left;
+        }
+
+        /* Hlavička tabulky */
+        .preference-table thead th {
+            background-color: #f9f9f9;
+        }
+
+        /* Hlavička "Partner" (styl z .legend-title) */
+        .preference-table thead th:last-child {
+            text-align: center;
+            font-weight: bold; /* Z vašeho .legend-title */
+        }
+
+        /* První sloupec (Popisky) */
+        .preference-table tbody td:first-child {
+            font-size: 1.25rem;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        /* Doplňující text (A-B Cups) */
+        .sub-text {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #555;
+        }
+
+
+
+
+
+
+
+/* --- Základní styly (z vašeho CSS) --- */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #212529;
+            line-height: 1.6;
+        }
+        
+        /* --- Hlavní kontejner --- */
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        h1, h2 {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        /* --- Styly pro formulář --- */
+        .form-section {
+            margin-bottom: 30px;
+            border: 1px solid #eee;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .form-section legend {
+            font-size: 1.5rem;
+            font-weight: 600;
+            padding: 0 10px;
+            margin-left: 10px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .form-group input[type="text"],
+        .form-group input[type="number"],
+        .form-group input[type="password"],
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box; /* Důležité pro 100% šířku */
+        }
+        
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .form-help-text {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        /* --- Legenda (vaše CSS) --- */
+        .legend-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 16px;
+            font-size: 14px;
+            color: #333;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+        .legend-title { font-weight: bold; }
+        .legend-item { display: flex; align-items: center; gap: 6px; }
+        .dot { display: inline-block; width: 14px; height: 14px; border-radius: 50%; }
+        
+        /* Barvy teček (z vašeho CSS) */
+        .dot-favorite { background-color: #007bff; }
+        .dot-like { background-color: #28a745; }
+        .dot-curious { background-color: #6f42c1; }
+        .dot-indifferent { background-color: #ffc107; }
+        .dot-maybe { background-color: #fd7e14; }
+        .dot-limit { background-color: #dc3545; }
+        .dot-not-entered { background-color: #adb5bd; }
+
+
+        /* --- Tabulka s preferencemi --- */
+        .table-wrapper {
+            overflow-x: auto; /* Pro mobily, pokud je tabulka moc široká */
+        }
+        
+        .preference-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .preference-table th,
+        .preference-table td {
+            border: 1px solid #ddd;
+            padding: 10px 12px;
+            vertical-align: middle;
+            text-align: left;
+        }
+
+        .preference-table thead th {
+            background-color: #f9f9f9;
+            text-align: center;
+            font-size: 0.85rem;
+            padding: 12px 5px;
+        }
+        
+        .preference-table thead th:first-child {
+            text-align: left;
+            font-size: 1rem;
+        }
+
+        .preference-table tbody td:first-child {
+            font-weight: 500;
+            min-width: 150px; /* Aby se názvy nezalamovaly moc brzy */
+        }
+        
+        .preference-table tbody td {
+            text-align: center; /* Vycentruje tečky */
+        }
+        
+        /* --- Systém výběru (Radio tečky) --- */
+        .choice-cell {
+            /* Skryjeme původní radio button */
+            position: relative;
+        }
+        .choice-cell input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        /* Nastylovaný label, který vypadá jako tečka */
+        .choice-cell .dot-label {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.2s ease;
+            
+            /* Dáme tečce barvu podle legendy */
+            /* Výchozí barva pro "Nezadáno" */
+            background-color: #dee2e6; 
+        }
+
+        /* Přiřazení barev jednotlivým volbám */
+        
+        .choice-cell .dot-label.dot-curious { background-color: #9f75e5; }
+        .choice-cell .dot-label.dot-favorite { background-color: #66b0ff; }
+        .choice-cell .dot-label.dot-like { background-color: #5dd879; }
+        .choice-cell .dot-label.dot-indifferent { background-color: #ffdb6d; }
+        .choice-cell .dot-label.dot-maybe { background-color: #ffac66; }
+        .choice-cell .dot-label.dot-limit { background-color: #ef7783; }
+        
+        /* Zvýraznění při najetí myší */
+        .choice-cell .dot-label:hover {
+            border-color: #333;
+        }
+        
+        /* ZVÝRAZNĚNÍ VYBRANÉ VOLBY */
+        .choice-cell input[type="radio"]:checked + .dot-label.dot-curious {
+            background-color: #6f42c1;
+            border-color: #000;
+        }
+
+        .choice-cell input[type="radio"]:checked + .dot-label.dot-favorite {
+            background-color: #007bff;
+            border-color: #000;
+        }
+
+        .choice-cell input[type="radio"]:checked + .dot-label.dot-like {
+            background-color: #28a745;
+            border-color: #000;
+        }
+
+        .choice-cell input[type="radio"]:checked + .dot-label.dot-indifferent {
+            background-color: #ffc107;
+            border-color: #000;
+        }
+
+        .choice-cell input[type="radio"]:checked + .dot-label.dot-maybe {
+            background-color: #fd7e14;
+            border-color: #000;
+        }
+
+        .choice-cell input[type="radio"]:checked + .dot-label.dot-limit {
+            background-color: #dc3545;
+            border-color: #000;
+        }
+
+        .choice-cell input[type="radio"]:checked + .dot-label.dot-not-entered {
+            background-color: #adb5bd;
+            border-color: #000;
+        }
+        
+        /* --- Tlačítko Uložit --- */
+        .submit-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: white;
+            background-color: #28a745; /* Zelená */
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        .submit-button:hover {
+            background-color: #218838;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /* Kontejner, který řadí volby horizontálně */
+.radio-group-horizontal {
+    display: flex;     /* Klíčová vlastnost: seřadí položky vedle sebe */
+    flex-wrap: wrap;   /* Umožní zalamování na menších obrazovkách */
+    gap: 20px;         /* Mezera mezi jednotlivými volbami */
+    margin-top: 8px;   /* Malé odsazení od hlavního popisku "Genitals" */
+}
+
+/* Kontejner pro jeden input + label */
+.radio-item {
+    display: flex;         /* Zarovná input a text na stejnou úroveň */
+    align-items: center;
+    gap: 6px;            /* Mezera mezi kolečkem a textem */
+}
+
+/* * DŮLEŽITÉ: Musíme přepsat obecné styly z .form-group, 
+ * aby se neaplikovaly na popisky u radio buttons.
+*/
+.radio-item label {
+    display: inline-block; /* Zruší 'display: block' z .form-group label */
+    font-weight: normal;     /* Zruší 'font-weight: 600' */
+    margin-bottom: 0;      /* Zruší 'margin-bottom: 5px' */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Nový kontejner pro "input group" */
+.input-group {
+    display: flex;  /* Seřadí prefix a input vedle sebe */
+    width: 100%;
+}
+
+/* Nový styl pro ten fixní text (prefix) */
+.input-group-prefix {
+    display: flex;
+    align-items: center; /* Vertikálně vycentruje text */
+    padding: 10px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #495057;     /* Tmavší šedá pro čitelnost */
+    background-color: #e9ecef; /* Světle šedé "disabled" pozadí */
+    border: 1px solid #ccc;
+    border-right: none;  /* Odstraní pravý okraj, aby se spojil s inputem */
+    border-radius: 6px 0 0 6px; /* Zaoblení jen levých rohů */
+    white-space: nowrap; /* Zabrání zalamování textu na více řádků */
+}
+
+/* Úprava stávajícího inputu, POKUD je v .input-group */
+.input-group input[type="text"] {
+    /* Zrušíme 100% šířku z .form-group a necháme flexbox, ať ji dopočítá */
+    width: auto; 
+    flex-grow: 1; /* Input zabere zbytek volného místa */
+    
+    /* Zrušíme zaoblení na levé straně, aby se přilepil k prefixu */
+    border-radius: 0 6px 6px 0;
+}
+
+/* Oprava pro focus (aby se správně zvýraznil i levý okraj) */
+.input-group input[type="text"]:focus {
+    position: relative;
+    z-index: 2;
+}
+
+.form-group {
+  transition: all 0.3s ease;
+}
+
+
+
+
+
+
+/*
+ * STYL PRO TRANZICI (ANIMACI)
+ */
+
+/* Toto je VÝCHOZÍ (skrytý) stav pole */
+#custom-slug-group {
+    opacity: 0;
+    max-height: 0; /* Klíčová vlastnost: výška je 0 */
+    overflow: hidden; /* Skryje obsah, který se "nevejde" */
+    pointer-events: none; /* Zabrání klikání na skrytý prvek */
+    
+    /* Také schováme margin, aby zmizel i prostor */
+    margin-bottom: 0; 
+    
+    /* Doba trvání a typ animace */
+    transition: all 0.35s ease-out;
+}
+
+/* Tuto třídu bude přidávat JavaScript, aby se pole ZOBRAZILO */
+#custom-slug-group.is-visible {
+    opacity: 1;
+    max-height: 200px; /* Nastavíme výšku větší, než bude obsah */
+    pointer-events: auto; /* Povolíme klikání */
+    
+    /* Vrátíme zpět původní margin ze třídy .form-group */
+    margin-bottom: 15px; 
+}
