@@ -6,7 +6,7 @@ echo '
 
 
 <form action="save.php" method="POST">
-
+            <fieldset class="form-section">
                 <legend>Info</legend>
                 
                 <div class="form-group">
@@ -92,7 +92,7 @@ echo '
                     <label for="notes">Notes</label>
                     <textarea id="notes" name="basic_info[notes]" placeholder="Do you want to specify something or is something missing? Write it here!"></textarea>
                 </div>
-                    
+            </fieldset>        
 
             
             <fieldset class="form-section">
@@ -108,64 +108,38 @@ echo '
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Líbání</td>
-                                <td class="choice-cell">
-                                    
-                                    
-                                
+                                <td ><div class="label-cell">Kissing</div</td>
+                                <td >
+                                    <div class="choice-cell">    
+                                        <label class="choice-dot-checkbox" title="Tried">
+                                            <input type="checkbox" name="preferences[kissing][tried]" value="1">
+                                            <span class="dot checkbox-visual"></span>
+                                        </label>
 
-                                    <input type="radio" id="kiss_fav" name="preferences[kissing]" value="favorite">
-                                    <label for="kiss_fav" class="dot-label dot-favorite" title="Favorite"></label>
-                                
-                                    <input type="radio" id="kiss_like" name="preferences[kissing]" value="like">
-                                    <label for="kiss_like" class="dot-label dot-like" title="Like"></label>
-                                
-                                    <input type="radio" id="kiss_ind" name="preferences[kissing]" value="indifferent">
-                                    <label for="kiss_ind" class="dot-label dot-indifferent" title="Indifferent"></label>
-                                
-                                    <input type="radio" id="kiss_maybe" name="preferences[kissing]" value="maybe">
-                                    <label for="kiss_maybe" class="dot-label dot-maybe" title="Maybe"></label>
-                                
-                                    <input type="radio" id="kiss_limit" name="preferences[kissing]" value="limit">
-                                    <label for="kiss_limit" class="dot-label dot-limit" title="Limit"></label>
-                                
-                                    <input type="radio" id="kiss_none" name="preferences[kissing]" value="not_entered" checked>
-                                    <label for="kiss_none" class="dot-label dot-not-entered" title="Not entered"></label>
+                                        <span class="choice-separator"></span>
                                     
+
+                                        <input type="radio" id="kiss_fav" name="preferences[kissing][rating]" value="favorite">
+                                        <label for="kiss_fav" class="dot-label dot-favorite" title="Favorite"></label>
+                                    
+                                        <input type="radio" id="kiss_like" name="preferences[kissing][rating]" value="like">
+                                        <label for="kiss_like" class="dot-label dot-like" title="Like"></label>
+                                    
+                                        <input type="radio" id="kiss_ind" name="preferences[kissing][rating]" value="indifferent">
+                                        <label for="kiss_ind" class="dot-label dot-indifferent" title="Indifferent"></label>
+                                    
+                                        <input type="radio" id="kiss_maybe" name="preferences[kissing][rating]" value="maybe">
+                                        <label for="kiss_maybe" class="dot-label dot-maybe" title="Maybe"></label>
+                                    
+                                        <input type="radio" id="kiss_limit" name="preferences[kissing][rating]" value="limit">
+                                        <label for="kiss_limit" class="dot-label dot-limit" title="Limit"></label>
+                                    
+                                        <input type="radio" id="kiss_none" name="preferences[kissing][rating]" value="not_entered" checked>
+                                        <label for="kiss_none" class="dot-label dot-not-entered" title="Not entered"></label>
+                                    </div>    
                                 </td>
                             </tr>
                             
-                            <tr>
-                                <td>Bondage (lehká)</td>
-                                <td class="choice-cell">
-                                    <input type="radio" id="bond_fav" name="preferences[bondage_light]" value="favorite">
-                                    <label for="bond_fav" class="dot-label dot-favorite" title="Oblíbené"></label>
-                                </td>
-                                <td class="choice-cell">
-                                    <input type="radio" id="bond_like" name="preferences[bondage_light]" value="like">
-                                    <label for="bond_like" class="dot-label dot-like" title="Líbí se"></label>
-                                </td>
-                                <td class="choice-cell">
-                                    <input type="radio" id="bond_cur" name="preferences[bondage_light]" value="curious">
-                                    <label for="bond_cur" class="dot-label dot-curious" title="Zvědavost"></label>
-                                </td>
-                                <td class="choice-cell">
-                                    <input type="radio" id="bond_ind" name="preferences[bondage_light]" value="indifferent">
-                                    <label for="bond_ind" class="dot-label dot-indifferent" title="Je mi to jedno"></label>
-                                </td>
-                                <td class="choice-cell">
-                                    <input type="radio" id="bond_maybe" name="preferences[bondage_light]" value="maybe">
-                                    <label for="bond_maybe" class="dot-label dot-maybe" title="Možná"></label>
-                                </td>
-                                <td class="choice-cell">
-                                    <input type="radio" id="bond_limit" name="preferences[bondage_light]" value="limit">
-                                    <label for="bond_limit" class="dot-label dot-limit" title="Limit"></label>
-                                </td>
-                                <td class="choice-cell">
-                                    <input type="radio" id="bond_none" name="preferences[bondage_light]" value="not_entered" checked>
-                                    <label for="bond_none" class="dot-label dot-not-entered" title="Nevyplněno"></label>
-                                </td>
-                            </tr>
                             
                             </tbody>
                     </table>

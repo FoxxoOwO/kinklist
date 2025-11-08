@@ -80,22 +80,10 @@
   background-color: #ef7783; /* Světle červená */
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f8f9fa;
-  color: #212529;
-}
 
 
-/* Kontejner pro tečky (mezera z vašeho .legend-item) */
-        .dots-container {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 6px; /* Z vašeho .legend-item */
-        }
+
+
 
 
 
@@ -148,12 +136,13 @@ body {
 
 /* --- Základní styly (z vašeho CSS) --- */
         body {
-            margin: 0;
+            margin: auto;
             padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f8f9fa;
             color: #212529;
             line-height: 1.6;
+            max-width: 90%;
         }
         
         /* --- Hlavní kontejner --- */
@@ -291,8 +280,17 @@ body {
         
         /* --- Systém výběru (Radio tečky) --- */
         .choice-cell {
-            /* Skryjeme původní radio button */
+            /* Vlastnosti pro zarovnání (z první definice) */
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center; /* <-- ZAJISTÍ VERTIKÁLNÍ ZAROVNÁNÍ */
+            gap: 6px;
+
+            /* Vlastnost pro skrytí (z druhé definice) */
             position: relative;
+
+            /* Tímto vycentrujete všechny kuličky v buňce */
+            justify-content: center;
         }
         .choice-cell input[type="radio"] {
             position: absolute;
@@ -314,6 +312,8 @@ body {
             /* Dáme tečce barvu podle legendy */
             /* Výchozí barva pro "Nezadáno" */
             background-color: #dee2e6; 
+
+            vertical-align: middle;
         }
 
         /* Přiřazení barev jednotlivým volbám */
@@ -512,4 +512,89 @@ body {
     
     /* Vrátíme zpět původní margin ze třídy .form-group */
     margin-bottom: 15px; 
+}
+
+
+
+
+/*
+ * NOVÉ STYLY PRO CUSTOM CHECKBOX
+ */
+
+/* Obalovač pro custom checkbox */
+.choice-dot-checkbox {
+    cursor: pointer;
+    display: flex;
+    padding: 0 2px; /* Malé odsazení */
+    vertical-align: middle;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+/* Skryjeme původní ošklivý checkbox */
+.choice-dot-checkbox input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Vizuální podoba (náš nový "dot" pro checkbox) */
+.checkbox-visual {
+    width: 18px;
+    height: 18px;
+    background-color: #fff;
+    border: 2px solid #adb5bd; /* Šedý okraj */
+    border-radius: 4px; /* Lehce zakulacený, aby bylo jasné, že je to checkbox */
+    transition: all 0.2s ease;
+    
+    /* Vlastnosti pro SVG fajfku */
+    background-size: 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Zvýraznění při najetí myší */
+.choice-dot-checkbox:hover .checkbox-visual {
+    border-color: #333;
+}
+
+/* STAV: Zaškrtnuto */
+.choice-dot-checkbox input[type="checkbox"]:checked + .checkbox-visual {
+    background-color: #a7289c; /* Zelená (barva "Like") */
+    border-color: #a7289c;
+    
+    /* * Bílá SVG fajfka vložená přímo do CSS. 
+     * Je URL-enkódovaná, aby fungovala ve všech prohlížečích.
+     */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M12.7 4.7l-7 7L2.3 8.3l1.4-1.4L5.7 9l5.6-5.6 1.4 1.3z'/%3E%3C/svg%3E");
+}
+
+/* STAV: Zaškrtnuto a najetí myší */
+.choice-dot-checkbox:hover input[type="checkbox"]:checked + .checkbox-visual {
+    background-color: #a7289c; /* Tmavší zelená */
+    border-color: #a7289c;
+}
+
+/* Vertikální oddělovač */
+.choice-separator {
+    display: inline-block;
+    width: 1px;
+    height: 20px;
+    background-color: #e0e0e0;
+    margin: 0 8px; /* Odsazení */
+    /* vertical-align: middle; */ /* Zarovná se doprostřed */
+}
+
+
+
+
+
+
+
+
+
+.label-cell {
+  display:flex;
+  align-items: center;
 }

@@ -20,14 +20,14 @@ echo '
   <span class="legend-title">Legend:</span>
 
   <div class="legend-item">
-    <span class="dot dot-not-entered"></span>
-    <span>Not entered</span>
+    <label class="choice-dot-checkbox" title="Tried">
+      <input type="checkbox" checked>
+      <span class="dot checkbox-visual"></span>
+    </label>
+    <span>Tried</span>
   </div>
 
-  <div class="legend-item">
-    <span class="dot dot-curious"></span>
-    <span>Curious</span>
-  </div>
+  
 
   <div class="legend-item">
     <span class="dot dot-favorite"></span>
@@ -52,6 +52,11 @@ echo '
   <div class="legend-item">
     <span class="dot dot-limit"></span>
     <span>Limit</span>
+  </div>
+
+  <div class="legend-item">
+    <span class="dot dot-not-entered"></span>
+    <span>Not entered</span>
   </div>
 </div>
 
