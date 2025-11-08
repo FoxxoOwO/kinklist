@@ -1,0 +1,89 @@
+/* Hlavní kontejner legendy */
+.legend-container {
+  display: flex; /* Použijeme Flexbox pro snadné horizontální zarovnání */
+  flex-wrap: wrap; /* Pokud se nevejde, zalomí se na další řádek */
+  align-items: center; /* Vertikálně vycentruje všechny položky */
+  gap: 16px; /* Mezera mezi jednotlivými položkami */
+  
+  font-family: Arial, sans-serif; /* Čisté písmo */
+  font-size: 14px;
+  color: #333;
+  
+  padding: 10px 15px; /* Vnitřní odsazení */
+  border: 1px solid #ddd; /* Jemný okraj */
+  border-radius: 8px; /* Zaoblené rohy */
+  background-color: #ffffff; /* Bílé pozadí */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Jemný stín jako na obrázku */
+}
+
+/* Text "Legend:" */
+.legend-title {
+  font-weight: bold;
+}
+
+/* Kontejner pro jednu položku (tečka + text) */
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* Mezera mezi tečkou a textem */
+}
+
+/* Společný styl pro všechny barevné tečky */
+.dot {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%; /* Udělá z čtverce kruh */
+}
+
+/* Jednotlivé barvy teček */
+.dot-not-entered {
+  background-color: #adb5bd; /* Šedá */
+}
+.dot-not-entered-light {
+  background-color: #dee2e6; /* Světle šedá */
+}
+.dot-curious {
+  background-color: #6f42c1; /* Fialová */
+}
+.dot-curious-light {
+  background-color: #9f75e5; /* Světle fialová */
+}
+.dot-favorite {
+  background-color: #007bff; /* Modrá */
+}
+.dot-favorite-light {
+  background-color: #66b0ff; /* Světle modrá */
+}
+.dot-like {
+  background-color: #28a745; /* Zelená */
+}
+.dot-like-light {
+  background-color: #5dd879; /* Světle zelená */
+}
+.dot-indifferent {
+  background-color: #ffc107; /* Žlutá */
+}
+.dot-indifferent-light {
+  background-color: #ffdb6d; /* Světle žlutá */
+}
+.dot-maybe {
+  background-color: #fd7e14; /* Oranžová */
+}
+.dot-maybe-light {
+  background-color: #ffac66; /* Světle oranžová */
+}
+.dot-limit {
+  background-color: #dc3545; /* Červená */
+}
+.dot-limit-light {
+  background-color: #ef7783; /* Světle červená */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  color: #212529;
+}
