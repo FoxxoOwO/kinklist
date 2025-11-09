@@ -156,7 +156,7 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
         
-        h1, h2 {
+        h1 {
             border-bottom: 2px solid #eee;
             padding-bottom: 10px;
         }
@@ -226,7 +226,7 @@
         }
         .legend-title { font-weight: bold; }
         .legend-item { display: flex; align-items: center; gap: 6px; }
-        .dot { display: inline-block; width: 14px; height: 14px; border-radius: 50%; }
+        .dot { display: inline-block; width: 18px; height: 18px; border-radius: 50%; }
         
         /* Barvy teček (z vašeho CSS) */
         .dot-favorite { background-color: #007bff; }
@@ -517,6 +517,9 @@
 
 
 
+
+
+
 /*
  * NOVÉ STYLY PRO CUSTOM CHECKBOX
  */
@@ -562,7 +565,7 @@
 /* STAV: Zaškrtnuto */
 .choice-dot-checkbox input[type="checkbox"]:checked + .checkbox-visual {
     background-color: #a7289c; /* Zelená (barva "Like") */
-    border-color: #a7289c;
+    border-color: #75196e;
     
     /* * Bílá SVG fajfka vložená přímo do CSS. 
      * Je URL-enkódovaná, aby fungovala ve všech prohlížečích.
@@ -572,8 +575,8 @@
 
 /* STAV: Zaškrtnuto a najetí myší */
 .choice-dot-checkbox:hover input[type="checkbox"]:checked + .checkbox-visual {
-    background-color: #a7289c; /* Tmavší zelená */
-    border-color: #a7289c;
+    background-color: #b62caa; /* Tmavší zelená */
+    border-color: #75196e;
 }
 
 /* Vertikální oddělovač */
@@ -585,9 +588,6 @@
     margin: 0 8px; /* Odsazení */
     /* vertical-align: middle; */ /* Zarovná se doprostřed */
 }
-
-
-
 
 
 
