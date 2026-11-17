@@ -1,0 +1,23 @@
+# Example Docker Compose configuration for KinkList
+# Copy this file to compose.yaml and adjust to your environment:
+#   cp compose.example.yaml compose.yaml
+#   docker compose up -d --build
+
+services:
+  kinklist:
+    build: .
+    container_name: kinklist
+    ports:
+      # Expose on port 8080 (use "127.0.0.1:8080:80" if running behind a reverse proxy)
+      - "8080:80"
+    environment:
+      # Location of the SQLite database file inside the container
+      DB_PATH: /var/www/data/kinklist.sqlite
+    volumes:
+      # Persist the SQLite database across container restarts/rebuilds.
+      # You can also use a host bind mount instead: ./data:/var/www/data
+      - kinklist_data:/var/www/data
+    restart: unless-stopped
+
+volumes:
+  kinklist_data:

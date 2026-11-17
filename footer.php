@@ -1,49 +1,50 @@
-<?php
+</div>
 
-echo '
-
-
-<footer>
-  <p>Made by FoxxoOwO with ❤️</p>
+<footer class="site-footer">
+  <p>Made by <a href="https://fetlife.com/FoxxoOwO" target="_blank" rel="noopener noreferrer">FoxxoOwO</a> with ❤️</p>
 </footer>
 
-
-
-
 <script>
-    // Načteme si všechny potřebné elementy
-    const urlRandom = document.getElementById(\'url_random\');
-    const urlCustom = document.getElementById(\'url_custom\');
-    const customSlugGroup = document.getElementById(\'custom-slug-group\');
-    const customSlugInput = document.getElementById(\'custom_slug\');
+  (function () {
+    const urlRandom = document.getElementById('url_random');
+    const urlCustom = document.getElementById('url_custom');
+    const customSlugGroup = document.getElementById('custom-slug-group');
+    const customSlugInput = document.getElementById('custom_slug');
 
-    // Vytvoříme funkci, která nastaví správný stav
-    function updateUrlMode() {
+    if (urlRandom && urlCustom && customSlugGroup && customSlugInput) {
+      function updateUrlMode() {
         if (urlCustom.checked) {
-            // --- Je vybráno "CUSTOM" ---
-            customSlugGroup.classList.add(\'is-visible\'); // PŘIDÁ TŘÍDU
-            customSlugInput.disabled = false;
-            customSlugInput.required = true;
+          customSlugGroup.classList.add('is-visible');
+          customSlugInput.disabled = false;
+          customSlugInput.required = true;
         } else {
-            // --- Je vybráno "RANDOM" ---
-            customSlugGroup.classList.remove(\'is-visible\'); // ODEBERE TŘÍDU
-            customSlugInput.disabled = true;
-            customSlugInput.required = false;
+          customSlugGroup.classList.remove('is-visible');
+          customSlugInput.disabled = true;
+          customSlugInput.required = false;
         }
+      }
+
+      urlRandom.addEventListener('change', updateUrlMode);
+      urlCustom.addEventListener('change', updateUrlMode);
+      updateUrlMode();
     }
 
-    // Přidáme "posluchače" na obě radio tlačítka
-    urlRandom.addEventListener(\'change\', updateUrlMode);
-    urlCustom.addEventListener(\'change\', updateUrlMode);
-
-    // Zavoláme funkci hned po načtení stránky,
-    // aby se nastavil správný výchozí stav (skryto).
-    updateUrlMode();
+    const copyBtn = document.getElementById('copy-share-url');
+    if (copyBtn) {
+      copyBtn.addEventListener('click', function () {
+        const url = copyBtn.getAttribute('data-url');
+        if (!url) return;
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(url).then(function () {
+            const orig = copyBtn.textContent;
+            copyBtn.textContent = 'Copied!';
+            setTimeout(function () { copyBtn.textContent = orig; }, 1800);
+          });
+        }
+      });
+    }
+  })();
 </script>
 
 </body>
 </html>
-
-
-
-';

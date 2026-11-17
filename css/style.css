@@ -1,540 +1,353 @@
-/* Hlavní kontejner legendy */
-.legend-container {
-  display: flex; /* Použijeme Flexbox pro snadné horizontální zarovnání */
-  flex-wrap: wrap; /* Pokud se nevejde, zalomí se na další řádek */
-  align-items: center; /* Vertikálně vycentruje všechny položky */
-  gap: 16px; /* Mezera mezi jednotlivými položkami */
-  
-  font-family: Arial, sans-serif; /* Čisté písmo */
-  font-size: 14px;
-  color: #333;
-  
-  padding: 10px 15px; /* Vnitřní odsazení */
-  border: 1px solid #ddd; /* Jemný okraj */
-  border-radius: 8px; /* Zaoblené rohy */
-  background-color: #ffffff; /* Bílé pozadí */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Jemný stín jako na obrázku */
+/* --- Základní styly --- */
+body {
+    margin: 0;
+    padding: 0 12px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #212529;
+    line-height: 1.6;
 }
 
-/* Text "Legend:" */
-.legend-title {
-  font-weight: bold;
+/* --- Hlavní kontejner --- */
+.container {
+    max-width: 960px;
+    margin: 20px auto;
+    padding: 24px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
-/* Kontejner pro jednu položku (tečka + text) */
-.legend-item {
-  display: flex;
-  align-items: center;
-  gap: 6px; /* Mezera mezi tečkou a textem */
-}
-
-/* Společný styl pro všechny barevné tečky */
-.dot {
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%; /* Udělá z čtverce kruh */
-}
-
-/* Jednotlivé barvy teček */
-.dot-not-entered {
-  background-color: #adb5bd; /* Šedá */
-}
-.dot-not-entered-light {
-  background-color: #dee2e6; /* Světle šedá */
-}
-.dot-curious {
-  background-color: #6f42c1; /* Fialová */
-}
-.dot-curious-light {
-  background-color: #9f75e5; /* Světle fialová */
-}
-.dot-favorite {
-  background-color: #007bff; /* Modrá */
-}
-.dot-favorite-light {
-  background-color: #66b0ff; /* Světle modrá */
-}
-.dot-like {
-  background-color: #28a745; /* Zelená */
-}
-.dot-like-light {
-  background-color: #5dd879; /* Světle zelená */
-}
-.dot-indifferent {
-  background-color: #ffc107; /* Žlutá */
-}
-.dot-indifferent-light {
-  background-color: #ffdb6d; /* Světle žlutá */
-}
-.dot-maybe {
-  background-color: #fd7e14; /* Oranžová */
-}
-.dot-maybe-light {
-  background-color: #ffac66; /* Světle oranžová */
-}
-.dot-limit {
-  background-color: #dc3545; /* Červená */
-}
-.dot-limit-light {
-  background-color: #ef7783; /* Světle červená */
-}
-
-
-
-
-
-
-
-
-/* --- Styly pro tabulku (inspirované obrázkem) --- */
-        
-        .preference-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .preference-table th,
-        .preference-table td {
-            border: 1px solid #ddd; /* Barva okraje z .legend-container */
-            padding: 12px 15px;
-            vertical-align: middle;
-            text-align: left;
-        }
-
-        /* Hlavička tabulky */
-        .preference-table thead th {
-            background-color: #f9f9f9;
-        }
-
-        /* Hlavička "Partner" (styl z .legend-title) */
-        .preference-table thead th:last-child {
-            text-align: center;
-            font-weight: bold; /* Z vašeho .legend-title */
-        }
-
-        /* První sloupec (Popisky) */
-        .preference-table tbody td:first-child {
-            font-size: 1.25rem;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        /* Doplňující text (A-B Cups) */
-        .sub-text {
-            display: block;
-            font-size: 0.9rem;
-            font-weight: 400;
-            color: #555;
-        }
-
-
-
-
-
-
-
-/* --- Základní styly (z vašeho CSS) --- */
-        body {
-            margin: auto;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8f9fa;
-            color: #212529;
-            line-height: 1.6;
-            max-width: 90%;
-        }
-        
-        /* --- Hlavní kontejner --- */
-        .container {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #ffffff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-        
-        h1 {
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-        }
-
-        /* --- Styly pro formulář --- */
-        .form-section {
-            margin-bottom: 30px;
-            border: 1px solid #eee;
-            padding: 20px;
-            border-radius: 8px;
-        }
-        
-        .form-section legend {
-            font-size: 1.5rem;
-            font-weight: 600;
-            padding: 0 10px;
-            margin-left: 10px;
-            color: #333;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-        
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-        
-        .form-group input[type="text"],
-        .form-group input[type="number"],
-        .form-group input[type="password"],
-        .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            box-sizing: border-box; /* Důležité pro 100% šířku */
-        }
-        
-        .form-group textarea {
-            min-height: 100px;
-            resize: vertical;
-        }
-        
-        .form-help-text {
-            font-size: 0.9rem;
-            color: #666;
-            margin-top: 5px;
-        }
-
-        /* --- Legenda (vaše CSS) --- */
-        .legend-container {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 16px;
-            font-size: 14px;
-            color: #333;
-            padding: 10px 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background-color: #ffffff;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            margin-bottom: 20px;
-        }
-        .legend-title { font-weight: bold; }
-        .legend-item { display: flex; align-items: center; gap: 6px; }
-        .dot { display: inline-block; width: 18px; height: 18px; border-radius: 50%; }
-        
-        /* Barvy teček (z vašeho CSS) */
-        .dot-favorite { background-color: #007bff; }
-        .dot-like { background-color: #28a745; }
-        .dot-curious { background-color: #6f42c1; }
-        .dot-indifferent { background-color: #ffc107; }
-        .dot-maybe { background-color: #fd7e14; }
-        .dot-limit { background-color: #dc3545; }
-        .dot-not-entered { background-color: #adb5bd; }
-
-
-        /* --- Tabulka s preferencemi --- */
-        .table-wrapper {
-            overflow-x: auto; /* Pro mobily, pokud je tabulka moc široká */
-        }
-        
-        .preference-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-
-        .preference-table th,
-        .preference-table td {
-            border: 1px solid #ddd;
-            padding: 10px 12px;
-            vertical-align: middle;
-            text-align: left;
-        }
-
-        .preference-table thead th {
-            background-color: #f9f9f9;
-            text-align: center;
-            font-size: 0.85rem;
-            padding: 12px 5px;
-        }
-        
-        .preference-table thead th:first-child {
-            text-align: left;
-            font-size: 1rem;
-        }
-
-        .preference-table tbody td:first-child {
-            font-weight: 500;
-            min-width: 150px; /* Aby se názvy nezalamovaly moc brzy */
-        }
-        
-        .preference-table tbody td {
-            text-align: center; /* Vycentruje tečky */
-        }
-        
-        /* --- Systém výběru (Radio tečky) --- */
-        .choice-cell {
-            /* Vlastnosti pro zarovnání (z první definice) */
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center; /* <-- ZAJISTÍ VERTIKÁLNÍ ZAROVNÁNÍ */
-            gap: 6px;
-
-            /* Vlastnost pro skrytí (z druhé definice) */
-            position: relative;
-
-            /* Tímto vycentrujete všechny kuličky v buňce */
-            justify-content: center;
-        }
-        .choice-cell input[type="radio"] {
-            position: absolute;
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-        
-        /* Nastylovaný label, který vypadá jako tečka */
-        .choice-cell .dot-label {
-            display: inline-block;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            cursor: pointer;
-            border: 2px solid transparent;
-            transition: all 0.2s ease;
-            
-            /* Dáme tečce barvu podle legendy */
-            /* Výchozí barva pro "Nezadáno" */
-            background-color: #dee2e6; 
-
-            vertical-align: middle;
-        }
-
-        /* Přiřazení barev jednotlivým volbám */
-        
-        .choice-cell .dot-label.dot-curious { background-color: #9f75e5; }
-        .choice-cell .dot-label.dot-favorite { background-color: #66b0ff; }
-        .choice-cell .dot-label.dot-like { background-color: #5dd879; }
-        .choice-cell .dot-label.dot-indifferent { background-color: #ffdb6d; }
-        .choice-cell .dot-label.dot-maybe { background-color: #ffac66; }
-        .choice-cell .dot-label.dot-limit { background-color: #ef7783; }
-        
-        /* Zvýraznění při najetí myší */
-        .choice-cell .dot-label:hover {
-            border-color: #333;
-        }
-        
-        /* ZVÝRAZNĚNÍ VYBRANÉ VOLBY */
-        .choice-cell input[type="radio"]:checked + .dot-label.dot-curious {
-            background-color: #6f42c1;
-            border-color: #000;
-        }
-
-        .choice-cell input[type="radio"]:checked + .dot-label.dot-favorite {
-            background-color: #007bff;
-            border-color: #000;
-        }
-
-        .choice-cell input[type="radio"]:checked + .dot-label.dot-like {
-            background-color: #28a745;
-            border-color: #000;
-        }
-
-        .choice-cell input[type="radio"]:checked + .dot-label.dot-indifferent {
-            background-color: #ffc107;
-            border-color: #000;
-        }
-
-        .choice-cell input[type="radio"]:checked + .dot-label.dot-maybe {
-            background-color: #fd7e14;
-            border-color: #000;
-        }
-
-        .choice-cell input[type="radio"]:checked + .dot-label.dot-limit {
-            background-color: #dc3545;
-            border-color: #000;
-        }
-
-        .choice-cell input[type="radio"]:checked + .dot-label.dot-not-entered {
-            background-color: #adb5bd;
-            border-color: #000;
-        }
-        
-        /* --- Tlačítko Uložit --- */
-        .submit-button {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            font-size: 1.25rem;
-            font-weight: bold;
-            color: white;
-            background-color: #28a745; /* Zelená */
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-        }
-        .submit-button:hover {
-            background-color: #218838;
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /* Kontejner, který řadí volby horizontálně */
-.radio-group-horizontal {
-    display: flex;     /* Klíčová vlastnost: seřadí položky vedle sebe */
-    flex-wrap: wrap;   /* Umožní zalamování na menších obrazovkách */
-    gap: 20px;         /* Mezera mezi jednotlivými volbami */
-    margin-top: 8px;   /* Malé odsazení od hlavního popisku "Genitals" */
-}
-
-/* Kontejner pro jeden input + label */
-.radio-item {
-    display: flex;         /* Zarovná input a text na stejnou úroveň */
-    align-items: center;
-    gap: 6px;            /* Mezera mezi kolečkem a textem */
-}
-
-/* * DŮLEŽITÉ: Musíme přepsat obecné styly z .form-group, 
- * aby se neaplikovaly na popisky u radio buttons.
-*/
-.radio-item label {
-    display: inline-block; /* Zruší 'display: block' z .form-group label */
-    font-weight: normal;     /* Zruší 'font-weight: 600' */
-    margin-bottom: 0;      /* Zruší 'margin-bottom: 5px' */
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Nový kontejner pro "input group" */
-.input-group {
-    display: flex;  /* Seřadí prefix a input vedle sebe */
-    width: 100%;
-}
-
-/* Nový styl pro ten fixní text (prefix) */
-.input-group-prefix {
+.site-header {
     display: flex;
-    align-items: center; /* Vertikálně vycentruje text */
-    padding: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+}
+
+.site-header h1 {
+    margin: 0;
+}
+
+.brand-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.brand-link:hover {
+    text-decoration: underline;
+}
+
+.header-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+.inline-form {
+    display: inline;
+    margin: 0;
+}
+
+.site-footer {
+    text-align: center;
+    color: #666;
     font-size: 0.9rem;
+    margin: 20px 0 32px;
+}
+
+/* --- Alerty --- */
+.alert {
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 20px;
     font-weight: 500;
-    color: #495057;     /* Tmavší šedá pro čitelnost */
-    background-color: #e9ecef; /* Světle šedé "disabled" pozadí */
-    border: 1px solid #ccc;
-    border-right: none;  /* Odstraní pravý okraj, aby se spojil s inputem */
-    border-radius: 6px 0 0 6px; /* Zaoblení jen levých rohů */
-    white-space: nowrap; /* Zabrání zalamování textu na více řádků */
 }
 
-/* Úprava stávajícího inputu, POKUD je v .input-group */
-.input-group input[type="text"] {
-    /* Zrušíme 100% šířku z .form-group a necháme flexbox, ať ji dopočítá */
-    width: auto; 
-    flex-grow: 1; /* Input zabere zbytek volného místa */
-    
-    /* Zrušíme zaoblení na levé straně, aby se přilepil k prefixu */
-    border-radius: 0 6px 6px 0;
+.alert-error {
+    background-color: #f8d7da;
+    color: #842029;
+    border: 1px solid #f5c2c7;
 }
 
-/* Oprava pro focus (aby se správně zvýraznil i levý okraj) */
-.input-group input[type="text"]:focus {
-    position: relative;
-    z-index: 2;
+.alert-success {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    border: 1px solid #badbcc;
+}
+
+/* --- Legenda --- */
+.legend-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+    font-size: 14px;
+    color: #333;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-bottom: 24px;
+}
+
+.legend-title {
+    font-weight: bold;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.legend-checkbox {
+    cursor: default;
+}
+
+.dot {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+}
+
+/* Barvy teček */
+.dot-curious { background-color: #6f42c1; }
+.dot-curious-light { background-color: #cbb5f0; }
+
+.dot-favorite { background-color: #007bff; }
+.dot-favorite-light { background-color: #b3d7ff; }
+
+.dot-like { background-color: #28a745; }
+.dot-like-light { background-color: #a9e5b7; }
+
+.dot-indifferent { background-color: #ffc107; }
+.dot-indifferent-light { background-color: #ffea9f; }
+
+.dot-maybe { background-color: #fd7e14; }
+.dot-maybe-light { background-color: #fed2ab; }
+
+.dot-limit { background-color: #dc3545; }
+.dot-limit-light { background-color: #f3b5bb; }
+
+.dot-not-entered { background-color: #adb5bd; }
+.dot-not-entered-light { background-color: #dee2e6; }
+
+/* --- Formulář --- */
+.form-section {
+    margin-bottom: 30px;
+    border: 1px solid #eee;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.form-section legend {
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 0 10px;
+    margin-left: 10px;
+    color: #333;
 }
 
 .form-group {
-  transition: all 0.3s ease;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
 }
 
-
-
-
-
-
-/*
- * STYL PRO TRANZICI (ANIMACI)
- */
-
-/* Toto je VÝCHOZÍ (skrytý) stav pole */
-#custom-slug-group {
-    opacity: 0;
-    max-height: 0; /* Klíčová vlastnost: výška je 0 */
-    overflow: hidden; /* Skryje obsah, který se "nevejde" */
-    pointer-events: none; /* Zabrání klikání na skrytý prvek */
-    
-    /* Také schováme margin, aby zmizel i prostor */
-    margin-bottom: 0; 
-    
-    /* Doba trvání a typ animace */
-    transition: all 0.35s ease-out;
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
 }
 
-/* Tuto třídu bude přidávat JavaScript, aby se pole ZOBRAZILO */
-#custom-slug-group.is-visible {
-    opacity: 1;
-    max-height: 200px; /* Nastavíme výšku větší, než bude obsah */
-    pointer-events: auto; /* Povolíme klikání */
-    
-    /* Vrátíme zpět původní margin ze třídy .form-group */
-    margin-bottom: 15px; 
-}
-
-
-
-
-
-
-
-/*
- * NOVÉ STYLY PRO CUSTOM CHECKBOX
- */
-
-/* Obalovač pro custom checkbox */
-.choice-dot-checkbox {
-    cursor: pointer;
-    display: flex;
-    padding: 0 2px; /* Malé odsazení */
-    vertical-align: middle;
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="password"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
     box-sizing: border-box;
+    font-family: inherit;
+    font-size: 1rem;
+    background-color: #fff;
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form-help-text {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* --- Tabulka s preferencemi --- */
+.table-wrapper {
+    overflow-x: auto;
+    margin-bottom: 24px;
+}
+
+.table-wrapper:last-child {
+    margin-bottom: 0;
+}
+
+.table-wrapper h2 {
+    margin: 0 0 8px;
+    font-size: 1.25rem;
+}
+
+.preference-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.preference-table th,
+.preference-table td {
+    border: 1px solid #ddd;
+    padding: 10px 12px;
+    vertical-align: middle;
+    text-align: left;
+}
+
+.preference-table thead th {
+    background-color: #f9f9f9;
+    text-align: center;
+    font-size: 0.9rem;
+    padding: 12px 5px;
+    font-weight: bold;
+}
+
+.preference-table thead th:first-child {
+    text-align: left;
+    font-size: 1rem;
+}
+
+.preference-table tbody td:first-child {
+    font-weight: 500;
+    min-width: 160px;
+}
+
+.preference-table tbody td {
+    text-align: center;
+}
+
+.label-cell {
+    display: flex;
     align-items: center;
 }
 
-/* Skryjeme původní ošklivý checkbox */
+/* --- Systém výběru (Radio tečky + Tried checkbox) --- */
+.choice-cell {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    position: relative;
+}
+
+.choice-cell input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.choice-cell .dot-label {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.2s ease;
+    background-color: #dee2e6;
+    vertical-align: middle;
+}
+
+.choice-cell .dot-label.dot-curious { background-color: #9f75e5; }
+.choice-cell .dot-label.dot-favorite { background-color: #66b0ff; }
+.choice-cell .dot-label.dot-like { background-color: #5dd879; }
+.choice-cell .dot-label.dot-indifferent { background-color: #ffdb6d; }
+.choice-cell .dot-label.dot-maybe { background-color: #ffac66; }
+.choice-cell .dot-label.dot-limit { background-color: #ef7783; }
+
+.choice-cell:not(.choice-cell-readonly) .dot-label:hover {
+    border-color: #333;
+}
+
+.choice-cell input[type="radio"]:checked + .dot-label.dot-curious,
+.choice-cell .dot-label.is-selected.dot-curious {
+    background-color: #6f42c1;
+    border-color: #000;
+}
+
+.choice-cell input[type="radio"]:checked + .dot-label.dot-favorite,
+.choice-cell .dot-label.is-selected.dot-favorite {
+    background-color: #007bff;
+    border-color: #000;
+}
+
+.choice-cell input[type="radio"]:checked + .dot-label.dot-like,
+.choice-cell .dot-label.is-selected.dot-like {
+    background-color: #28a745;
+    border-color: #000;
+}
+
+.choice-cell input[type="radio"]:checked + .dot-label.dot-indifferent,
+.choice-cell .dot-label.is-selected.dot-indifferent {
+    background-color: #ffc107;
+    border-color: #000;
+}
+
+.choice-cell input[type="radio"]:checked + .dot-label.dot-maybe,
+.choice-cell .dot-label.is-selected.dot-maybe {
+    background-color: #fd7e14;
+    border-color: #000;
+}
+
+.choice-cell input[type="radio"]:checked + .dot-label.dot-limit,
+.choice-cell .dot-label.is-selected.dot-limit {
+    background-color: #dc3545;
+    border-color: #000;
+}
+
+.choice-cell input[type="radio"]:checked + .dot-label.dot-not-entered,
+.choice-cell .dot-label.is-selected.dot-not-entered {
+    background-color: #adb5bd;
+    border-color: #000;
+}
+
+.choice-cell-readonly .dot-label,
+.choice-cell-readonly .choice-dot-checkbox {
+    cursor: default;
+}
+
+/* --- Custom Checkbox (Tried) --- */
+.choice-dot-checkbox {
+    cursor: pointer;
+    display: flex;
+    padding: 0 2px;
+    vertical-align: middle;
+    box-sizing: border-box;
+    align-items: center;
+    position: relative;
+}
+
 .choice-dot-checkbox input[type="checkbox"] {
     position: absolute;
     opacity: 0;
@@ -542,59 +355,436 @@
     height: 0;
 }
 
-/* Vizuální podoba (náš nový "dot" pro checkbox) */
 .checkbox-visual {
     width: 18px;
     height: 18px;
     background-color: #fff;
-    border: 2px solid #adb5bd; /* Šedý okraj */
-    border-radius: 4px; /* Lehce zakulacený, aby bylo jasné, že je to checkbox */
+    border: 2px solid #adb5bd;
+    border-radius: 4px;
     transition: all 0.2s ease;
-    
-    /* Vlastnosti pro SVG fajfku */
     background-size: 70%;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-/* Zvýraznění při najetí myší */
-.choice-dot-checkbox:hover .checkbox-visual {
+.choice-cell:not(.choice-cell-readonly) .choice-dot-checkbox:hover .checkbox-visual {
     border-color: #333;
 }
 
-/* STAV: Zaškrtnuto */
 .choice-dot-checkbox input[type="checkbox"]:checked + .checkbox-visual {
-    background-color: #a7289c; /* Zelená (barva "Like") */
+    background-color: #a7289c;
     border-color: #75196e;
-    
-    /* * Bílá SVG fajfka vložená přímo do CSS. 
-     * Je URL-enkódovaná, aby fungovala ve všech prohlížečích.
-     */
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M12.7 4.7l-7 7L2.3 8.3l1.4-1.4L5.7 9l5.6-5.6 1.4 1.3z'/%3E%3C/svg%3E");
 }
 
-/* STAV: Zaškrtnuto a najetí myší */
-.choice-dot-checkbox:hover input[type="checkbox"]:checked + .checkbox-visual {
-    background-color: #b62caa; /* Tmavší zelená */
+.choice-cell:not(.choice-cell-readonly) .choice-dot-checkbox:hover input[type="checkbox"]:checked + .checkbox-visual {
+    background-color: #b62caa;
     border-color: #75196e;
 }
 
-/* Vertikální oddělovač */
 .choice-separator {
     display: inline-block;
     width: 1px;
     height: 20px;
     background-color: #e0e0e0;
-    margin: 0 8px; /* Odsazení */
-    /* vertical-align: middle; */ /* Zarovná se doprostřed */
+    margin: 0 8px;
 }
 
+/* --- Horizontální radio volby --- */
+.radio-group-horizontal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 8px;
+}
 
+.radio-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
 
+.radio-item label {
+    display: inline-block;
+    font-weight: normal;
+    margin-bottom: 0;
+}
 
+/* --- Input group (prefix + slug) --- */
+.input-group {
+    display: flex;
+    width: 100%;
+}
 
+.input-group-prefix {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #495057;
+    background-color: #e9ecef;
+    border: 1px solid #ccc;
+    border-right: none;
+    border-radius: 6px 0 0 6px;
+    white-space: nowrap;
+}
 
-.label-cell {
-  display:flex;
-  align-items: center;
+.input-group input[type="text"] {
+    width: auto;
+    flex-grow: 1;
+    border-radius: 0 6px 6px 0;
+}
+
+.input-group input[type="text"]:focus {
+    position: relative;
+    z-index: 2;
+}
+
+#custom-slug-group {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    pointer-events: none;
+    margin-bottom: 0;
+    transition: all 0.35s ease-out;
+}
+
+#custom-slug-group.is-visible {
+    opacity: 1;
+    max-height: 200px;
+    pointer-events: auto;
+    margin-bottom: 15px;
+}
+
+/* --- Tlačítka a akce --- */
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+}
+
+.submit-button {
+    display: block;
+    flex: 1 1 200px;
+    padding: 14px 20px;
+    font-size: 1.15rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #28a745;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.submit-button:hover {
+    background-color: #218838;
+}
+
+.btn-inline {
+    display: inline-block;
+    flex: initial;
+}
+
+.btn-primary,
+.btn-secondary {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+    font-family: inherit;
+    line-height: 1.4;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #0069d9;
+}
+
+.btn-secondary {
+    background-color: #f1f3f5;
+    color: #333;
+    border-color: #d0d7de;
+}
+
+.btn-secondary:hover {
+    background-color: #e2e6ea;
+}
+
+/* --- Read-only Info & Auth --- */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 12px;
+}
+
+.info-card {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.info-card-label {
+    font-size: 0.8rem;
+    color: #6c757d;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.info-card-value {
+    font-weight: 600;
+    color: #212529;
+}
+
+.notes-box {
+    margin-top: 16px;
+    padding: 12px 14px;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+}
+
+.notes-box p {
+    margin: 6px 0 0;
+}
+
+.muted-text {
+    color: #6c757d;
+    margin: 0 0 12px;
+}
+
+.auth-box,
+.empty-state {
+    max-width: 520px;
+    margin: 24px auto;
+}
+
+.choice-cell .dot-label,
+.choice-dot-checkbox,
+.submit-button,
+.btn-primary,
+.btn-secondary {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* --- Mobilní optimalizace --- */
+@media (max-width: 720px) {
+    body {
+        padding: 0 6px;
+    }
+
+    .container {
+        margin: 10px auto;
+        padding: 14px 12px;
+        border-radius: 8px;
+    }
+
+    .site-header {
+        margin-bottom: 14px;
+        padding-bottom: 10px;
+    }
+
+    .site-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .header-actions {
+        width: 100%;
+    }
+
+    .header-actions .inline-form {
+        flex: 1 1 auto;
+        display: flex;
+    }
+
+    .header-actions .inline-form button {
+        width: 100%;
+    }
+
+    .header-actions .btn-primary,
+    .header-actions .btn-secondary {
+        flex: 1 1 auto;
+        text-align: center;
+        padding: 9px 12px;
+    }
+
+    .legend-container {
+        gap: 8px 12px;
+        font-size: 13px;
+        padding: 10px 12px;
+        margin-bottom: 16px;
+    }
+
+    .legend-container .dot,
+    .legend-container .checkbox-visual {
+        width: 16px;
+        height: 16px;
+    }
+
+    .form-section {
+        padding: 14px 10px;
+        margin-bottom: 20px;
+    }
+
+    .form-section legend {
+        font-size: 1.25rem;
+        margin-left: 4px;
+    }
+
+    .info-grid {
+        grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
+        gap: 8px;
+    }
+
+    .table-wrapper {
+        overflow-x: visible;
+    }
+
+    .preference-table,
+    .preference-table tbody,
+    .preference-table tr,
+    .preference-table td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .preference-table thead {
+        display: none;
+    }
+
+    .preference-table tbody tr {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        background-color: #fff;
+        overflow: hidden;
+    }
+
+    .preference-table tbody tr:last-child {
+        margin-bottom: 0;
+    }
+
+    .preference-table tbody td {
+        border: none;
+        border-top: 1px solid #f0f0f0;
+        padding: 10px 12px;
+        text-align: left;
+    }
+
+    .preference-table tbody td:first-child {
+        border-top: none;
+        background-color: #f8f9fa;
+        font-weight: 600;
+        font-size: 1rem;
+        padding: 9px 12px;
+        min-width: 0;
+    }
+
+    .preference-table tbody td[data-label] {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px 12px;
+        flex-wrap: wrap;
+    }
+
+    .preference-table tbody td[data-label]::before {
+        content: attr(data-label);
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #555;
+        min-width: 68px;
+    }
+
+    .preference-table tbody td.single-choice-cell .choice-cell {
+        justify-content: flex-start;
+    }
+
+    .preference-table tbody td[data-label] .choice-cell {
+        justify-content: flex-end;
+        flex: 1 1 auto;
+    }
+
+    .choice-cell {
+        gap: 7px;
+    }
+
+    .choice-cell .dot-label,
+    .checkbox-visual {
+        width: 23px;
+        height: 23px;
+    }
+
+    .choice-separator {
+        height: 24px;
+        margin: 0 4px;
+    }
+
+    .radio-group-horizontal {
+        gap: 12px 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .preference-table tbody td[data-label] {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .preference-table tbody td[data-label] .choice-cell {
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    .input-group {
+        flex-direction: column;
+    }
+
+    .input-group-prefix {
+        border-right: 1px solid #ccc;
+        border-bottom: none;
+        border-radius: 6px 6px 0 0;
+        padding: 8px 10px;
+        font-size: 0.85rem;
+        overflow-x: auto;
+    }
+
+    .input-group input[type="text"] {
+        width: 100%;
+        border-radius: 0 0 6px 6px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .submit-button {
+        flex: none;
+        width: 100%;
+    }
+
+    .form-actions .btn-secondary {
+        text-align: center;
+        padding: 11px 14px;
+    }
 }

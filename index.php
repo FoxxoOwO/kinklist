@@ -1,8 +1,16 @@
 <?php
 
-require_once "condb.php";
+declare(strict_types=1);
 
+require_once __DIR__ . '/condb.php';
+require_once __DIR__ . '/helpers.php';
 
-require_once "header.php";
-require_once "body.php";
-require_once "footer.php";
+getDb();
+
+$pageTitle = 'KinkList — Create';
+$formMode = 'create';
+$formAction = '/save.php';
+
+require_once __DIR__ . '/header.php';
+require_once __DIR__ . '/body.php';
+require_once __DIR__ . '/footer.php';
