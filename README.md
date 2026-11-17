@@ -11,16 +11,20 @@ A lightweight PHP + SQLite web app for creating, sharing, and editing personal k
 - Responsive layout optimized for both desktop and mobile
 - Zero external database container required (uses SQLite via PDO)
 
-## Running with Docker
+## Running with Docker (GitHub Package)
 
 1. Copy the example compose file:
    ```bash
    cp compose.example.yaml compose.yaml
    ```
-2. Start the application:
+2. Start the application using the prebuilt `ghcr.io/foxxoowo/kinklist:latest` image:
+   ```bash
+   docker compose up -d
+   ```
+3. Or build locally from source:
    ```bash
    docker compose up -d --build
    ```
-3. Open `http://localhost:8080` in your browser.
+4. Open `http://localhost:8080` in your browser.
 
 Database data is persisted in `/var/www/data/kinklist.sqlite` via the mounted Docker volume.
