@@ -46,6 +46,7 @@
   })();
 </script>
 
-<script src="/js/export-png.js" defer></script>
+<?php $jsVersion = (int) (@filemtime(__DIR__ . '/js/export-png.js') ?: 1); ?>
+<script src="/js/export-png.js?v=<?= $jsVersion ?>" defer></script>
 </body>
 </html>

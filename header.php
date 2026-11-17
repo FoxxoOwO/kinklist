@@ -8,6 +8,8 @@ $pageTitle = $pageTitle ?? 'KinkyMe';
 $showLegend = $showLegend ?? true;
 $flash = consumeFlash();
 $ratings = getRatings();
+$cssVersion = (int) (@filemtime(__DIR__ . '/css/style.css') ?: 1);
+$iconVersion = (int) (@filemtime(__DIR__ . '/favicon.svg') ?: 1);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,9 +17,9 @@ $ratings = getRatings();
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?= e($pageTitle) ?></title>
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="apple-touch-icon" href="/favicon.svg">
-  <link href="/css/style.css" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=<?= $iconVersion ?>">
+  <link rel="apple-touch-icon" href="/favicon.svg?v=<?= $iconVersion ?>">
+  <link href="/css/style.css?v=<?= $cssVersion ?>" rel="stylesheet">
 </head>
 <body>
 <div class="container">

@@ -820,6 +820,10 @@ body {
     gap: 2px;
 }
 
+.export-menu:not([open]) .export-menu-list {
+    display: none;
+}
+
 .export-menu-item {
     display: block;
     width: 100%;
