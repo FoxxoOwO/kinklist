@@ -67,8 +67,8 @@ function isValidSlug(string $slug): bool
 function isReservedSlug(string $slug): bool
 {
     $reserved = [
-        'index', 'save', 'view', 'edit', 'condb', 'header', 'footer',
-        'body', 'kinks', 'helpers', 'css', 'data', 'assets', 'api', 'admin',
+        'index', 'save', 'view', 'edit', 'export', 'condb', 'header', 'footer',
+        'body', 'kinks', 'helpers', 'css', 'js', 'data', 'assets', 'api', 'admin',
     ];
     return in_array(strtolower($slug), $reserved, true);
 }

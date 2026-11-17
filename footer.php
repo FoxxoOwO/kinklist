@@ -46,5 +46,6 @@
   })();
 </script>
 
+<script src="/js/export-png.js" defer></script>
 </body>
 </html>

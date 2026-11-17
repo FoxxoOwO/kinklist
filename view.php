@@ -37,8 +37,18 @@ $pageTitle = ($nickname !== '' ? $nickname . ' — ' : '') . 'KinkyMe';
 $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
 $shareUrl = $scheme . '://' . ($_SERVER['HTTP_HOST'] ?? 'localhost') . '/' . rawurlencode((string) $list['slug']);
 $editUrl = '/' . rawurlencode((string) $list['slug']) . '/edit';
+$exportBaseUrl = '/' . rawurlencode((string) $list['slug']) . '/export';
 
 $headerActionsHtml = '<button type="button" id="copy-share-url" class="btn-secondary" data-url="' . e($shareUrl) . '">Copy link</button>'
+    . '<details class="export-menu">'
+    . '<summary class="btn-secondary">Export ▾</summary>'
+    . '<div class="export-menu-list">'
+    . '<button type="button" id="export-png-btn" class="export-menu-item">Download PNG image</button>'
+    . '<a href="' . e($exportBaseUrl . '?format=json') . '" class="export-menu-item">Download JSON</a>'
+    . '<a href="' . e($exportBaseUrl . '?format=md') . '" class="export-menu-item">Download Markdown</a>'
+    . '<button type="button" onclick="window.print()" class="export-menu-item">Print / Save PDF</button>'
+    . '</div>'
+    . '</details>'
     . '<a href="' . e($editUrl) . '" class="btn-primary">Edit</a>'
     . '<a href="/" class="btn-secondary">New list</a>';
 
@@ -167,6 +177,67 @@ require_once __DIR__ . '/header.php';
         </div>
     <?php endforeach; ?>
 </fieldset>
+
+<?php
+$exportInfo = [];
+foreach ($infoRows as $label => $value) {
+    $exportInfo[] = ['label' => $label, 'value' => $value];
+}
+
+$exportRatings = [];
+foreach ($ratings as $rKey => $rMeta) {
+    $exportRatings[] = ['key' => $rKey, 'label' => $rMeta['label']];
+}
+
+$exportSections = [];
+foreach ($sections as $sectionKey => $section) {
+    $cols = [];
+    if ($section['columns'] !== null) {
+        foreach ($section['columns'] as $cKey => $cLabel) {
+            $cols[] = ['key' => $cKey, 'label' => $cLabel];
+        }
+    }
+    $itemsOut = [];
+    foreach ($section['items'] as $itemLabel) {
+        $itemKey = slugifyKinkKey($itemLabel);
+        $savedItem = $preferences[$sectionKey][$itemKey] ?? [];
+        $vals = [];
+        if ($section['columns'] === null) {
+            $r = (string) ($savedItem['rating'] ?? 'not_entered');
+            $vals[] = [
+                'tried'  => !empty($savedItem['tried']),
+                'rating' => array_key_exists($r, $ratings) ? $r : 'not_entered',
+            ];
+        } else {
+            foreach (array_keys($section['columns']) as $colKey) {
+                $colData = is_array($savedItem[$colKey] ?? null) ? $savedItem[$colKey] : [];
+                $r = (string) ($colData['rating'] ?? 'not_entered');
+                $vals[] = [
+                    'tried'  => !empty($colData['tried']),
+                    'rating' => array_key_exists($r, $ratings) ? $r : 'not_entered',
+                ];
+            }
+        }
+        $itemsOut[] = ['label' => $itemLabel, 'values' => $vals];
+    }
+    $exportSections[] = [
+        'title'   => $section['title'],
+        'columns' => $cols,
+        'items'   => $itemsOut,
+    ];
+}
+
+$exportPayload = [
+    'slug'     => (string) $list['slug'],
+    'nickname' => $nickname,
+    'shareUrl' => ($_SERVER['HTTP_HOST'] ?? 'localhost') . '/' . $list['slug'],
+    'info'     => $exportInfo,
+    'notes'    => $notes,
+    'ratings'  => $exportRatings,
+    'sections' => $exportSections,
+];
+?>
+<script type="application/json" id="kinkyme-export-data"><?= json_encode($exportPayload, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR) ?></script>
 
 <?php
 require_once __DIR__ . '/footer.php';

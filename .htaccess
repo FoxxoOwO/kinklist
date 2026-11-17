@@ -10,6 +10,11 @@ RewriteRule ^\. - [F,L]
     Require all denied
 </FilesMatch>
 
+# Route /<slug>/export -> export.php?slug=<slug>
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([a-zA-Z0-9-]+)/export/?$ export.php?slug=$1 [L,QSA]
+
 # Route /<slug>/edit -> edit.php?slug=<slug>
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
