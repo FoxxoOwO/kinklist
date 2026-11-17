@@ -11,14 +11,14 @@ $list = $slug !== '' ? findListBySlug($pdo, $slug) : null;
 
 if ($list === null) {
     http_response_code(404);
-    $pageTitle = 'KinkList — Not found';
+    $pageTitle = 'KinkyMe — Not found';
     $showLegend = false;
     require_once __DIR__ . '/header.php';
     ?>
     <section class="form-section empty-state">
         <h2>List not found</h2>
-        <p>The KinkList at <code>/<?= e($slug) ?></code> does not exist or may have been moved to a different link.</p>
-        <a href="/" class="submit-button btn-inline">Create a new KinkList</a>
+        <p>The KinkyMe list at <code>/<?= e($slug) ?></code> does not exist or may have been moved to a different link.</p>
+        <a href="/" class="submit-button btn-inline">Create a new KinkyMe list</a>
     </section>
     <?php
     require_once __DIR__ . '/footer.php';
@@ -32,7 +32,7 @@ $infoOptions = getBasicInfoOptions();
 $sections = getKinkSections();
 
 $nickname = trim((string) ($basicInfo['nickname'] ?? ''));
-$pageTitle = ($nickname !== '' ? $nickname . ' — ' : '') . 'KinkList';
+$pageTitle = ($nickname !== '' ? $nickname . ' — ' : '') . 'KinkyMe';
 
 $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
 $shareUrl = $scheme . '://' . ($_SERVER['HTTP_HOST'] ?? 'localhost') . '/' . rawurlencode((string) $list['slug']);

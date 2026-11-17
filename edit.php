@@ -13,14 +13,14 @@ $list = $slug !== '' ? findListBySlug($pdo, $slug) : null;
 
 if ($list === null) {
     http_response_code(404);
-    $pageTitle = 'KinkList — Not found';
+    $pageTitle = 'KinkyMe — Not found';
     $showLegend = false;
     require_once __DIR__ . '/header.php';
     ?>
     <section class="form-section empty-state">
         <h2>List not found</h2>
-        <p>The KinkList at <code>/<?= e($slug) ?></code> does not exist.</p>
-        <a href="/" class="submit-button btn-inline">Create a new KinkList</a>
+        <p>The KinkyMe list at <code>/<?= e($slug) ?></code> does not exist.</p>
+        <a href="/" class="submit-button btn-inline">Create a new KinkyMe list</a>
     </section>
     <?php
     require_once __DIR__ . '/footer.php';
@@ -124,7 +124,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 if (!$isAuthorized) {
-    $pageTitle = 'Unlock KinkList — /' . $currentSlug;
+    $pageTitle = 'Unlock KinkyMe — /' . $currentSlug;
     $showLegend = false;
     $headerActionsHtml = '<a href="' . e($viewUrl) . '" class="btn-secondary">Back to list</a>';
     require_once __DIR__ . '/header.php';
@@ -150,7 +150,7 @@ if (!$isAuthorized) {
     exit;
 }
 
-$pageTitle = 'Edit KinkList — /' . $currentSlug;
+$pageTitle = 'Edit KinkyMe — /' . $currentSlug;
 $formMode = 'edit';
 $formAction = $editUrl;
 $formData = $formDataOverride ?? [

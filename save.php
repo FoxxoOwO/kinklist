@@ -81,6 +81,6 @@ $stmt->execute([
     ':preferences'   => json_encode($preferences, JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR),
 ]);
 
-setFlash('success', 'Your KinkList has been saved!');
+setFlash('success', 'Your KinkyMe list has been saved!');
 header('Location: /' . rawurlencode($slug), true, 303);
 exit;

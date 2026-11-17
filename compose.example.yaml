@@ -1,15 +1,15 @@
-# Example Docker Compose configuration for KinkList
+# Example Docker Compose configuration for KinkyMe
 # Copy this file to compose.yaml and adjust to your environment:
 #   cp compose.example.yaml compose.yaml
 #   docker compose up -d
 
 services:
-  kinklist:
+  kinkyme:
     # Prebuilt multi-arch image from GitHub Container Registry (GHCR):
     image: ghcr.io/foxxoowo/kinklist:latest
     # Or build locally from source instead:
     # build: .
-    container_name: kinklist
+    container_name: kinkyme
     ports:
       # Expose on port 8080 (use "127.0.0.1:8080:80" if running behind a reverse proxy)
       - "8080:80"

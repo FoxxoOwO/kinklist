@@ -7,7 +7,7 @@ require_once __DIR__ . '/helpers.php';
 
 getDb();
 
-$pageTitle = 'KinkList — Create';
+$pageTitle = 'KinkyMe — Create';
 $formMode = 'create';
 $formAction = '/save.php';
 

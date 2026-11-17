@@ -1,4 +1,4 @@
-# KinkList
+# KinkyMe
 
 A lightweight PHP + SQLite web app for creating, sharing, and editing personal kink lists.
 

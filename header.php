@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/helpers.php';
 
-$pageTitle = $pageTitle ?? 'KinkList';
+$pageTitle = $pageTitle ?? 'KinkyMe';
 $showLegend = $showLegend ?? true;
 $flash = consumeFlash();
 $ratings = getRatings();
@@ -21,7 +21,7 @@ $ratings = getRatings();
 <div class="container">
 
 <header class="site-header">
-  <h1><a href="/" class="brand-link">KinkList</a></h1>
+  <h1><a href="/" class="brand-link">KinkyMe</a></h1>
   <?php if (!empty($headerActionsHtml)): ?>
     <div class="header-actions"><?= $headerActionsHtml ?></div>
   <?php endif; ?>
